@@ -16,7 +16,7 @@ const TabFourScreen = () => {
             />
             <TextInput
                 style={styles.input}
-                placeholder="Tipo de sangre"
+                placeholder="Tipo sangre"
             />
             <TextInput
                 style={styles.input}
