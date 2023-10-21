@@ -52,13 +52,6 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="[id]"
-        options={{
-          title: "Pantalla",
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-        }}
-      />
-      <Tabs.Screen
         name="form"
         options={{
           title: "Formulario",

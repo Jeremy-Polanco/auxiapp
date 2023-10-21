@@ -9,6 +9,11 @@ const TabFourScreen = () => {
                 style={styles.input}
                 placeholder="Nombre"
             />
+             <TextInput
+                style={styles.input}
+                placeholder="Edad"
+                keyboardType="numeric"
+            />
             <TextInput
                 style={styles.input}
                 placeholder="Cédula"
@@ -18,9 +23,28 @@ const TabFourScreen = () => {
                 style={styles.input}
                 placeholder="Tipo de sangre"
             />
+              <TextInput
+                style={styles.input}
+                placeholder="Enfermedades que padece"
+            />
+        
+              <TextInput
+                style={styles.input}
+                placeholder="Alergias"
+            />
             <TextInput
                 style={styles.input}
-                placeholder="Contacto de emergencia"
+                placeholder="Primer contacto de emergencia"
+                
+            />
+               <TextInput
+                style={styles.input}
+                placeholder="Segundo contacto de emergencia"
+                
+            />
+             <TextInput
+                style={styles.input}
+                placeholder="Numero de residencia"
                 keyboardType="numeric"
             />
             <TouchableHighlight style={styles.button} underlayColor="#3e8651ff" onPress={() => {}}>

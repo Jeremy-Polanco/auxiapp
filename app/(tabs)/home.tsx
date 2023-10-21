@@ -1,18 +1,21 @@
 import { Image, StyleSheet, Text } from "react-native";
 
 import { TouchableOpacity } from "react-native-gesture-handler";
-import Logo from "../../assets/icons/logo.jpeg";
+import Logo from "../../assets/icons/logo.png";
 import { View } from "../../components/Themed";
 import { Link } from "expo-router";
 
 const buttons = [
-  { id: 1, title: "Hemorragia", href: "/(tabs)/[id]" },
-  { id: 2, title: "Botón 2", href: "" },
-  { id: 3, title: "Botón 3", href: "" },
-  { id: 4, title: "Botón 4", href: "" },
-  { id: 5, title: "Botón 5", href: "" },
-  { id: 6, title: "Botón 6", href: "" },
-  { id: 7, title: "Botón 7", href: "" },
+  { id: 1, title: "Electrocutacion", href: "/(tabs)/screens/Electrocutaciones/Paso1" },
+  { id: 2, title: "Quemaduras", href: "/(tabs)/screens/Quemaduras/Paso1" },
+  { id: 3, title: "Incendio", href: "/(tabs)/screens/Incendios/Paso1" },
+  { id: 4, title: "Intoxicacion", href: "/(tabs)/screens/Intoxicaciones/Paso1" },
+  { id: 5, title: "Hemorragia Nasal", href: "/(tabs)/screens/HemorragiaNasal/hemorragia" },
+  { id: 6, title: "Hemorragia Herida", href: "/(tabs)/screens/HemorragiaHerida/Paso1" },
+  { id: 7, title: "Atragantamiento", href: "/(tabs)/screens/Atragantamientos/Paso1" },
+  { id: 8, title: "Hipoglucemia", href: "/(tabs)/screens/Hipoglucemia/Paso1" },
+  { id: 9, title: "Fractura", href: "/(tabs)/screens/Fractura/pregunta" },
+  { id: 10, title: "RCP", href: "/(tabs)/screens/Paso1" },
 ];
 
 export default function TabOneScreen() {
@@ -24,7 +27,7 @@ export default function TabOneScreen() {
       <View style={styles.buttonWrapper}>
         {buttons.map(({ id, title, href }) => {
           return (
-            <Link key={id} href={{ pathname: href, params: { id } }}>
+            <Link key={id} href={{ pathname: href}}>
               <TouchableOpacity style={styles.button}>
                 <Text style={styles.buttonText}>{title}</Text>
               </TouchableOpacity>
