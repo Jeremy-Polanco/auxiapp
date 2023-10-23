@@ -4,9 +4,6 @@ import { Pressable, useColorScheme } from "react-native";
 
 import Colors from "../../constants/Colors";
 
-/**
- * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
- */
 function TabBarIcon(props: {
   name: React.ComponentProps<typeof FontAwesome>["name"];
   color: string;
@@ -27,7 +24,7 @@ export default function TabLayout() {
         name="index"
         options={{
           title: "Inicio",
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
           headerRight: () => (
             <Link href="/modal" asChild>
               <Pressable>
@@ -47,17 +44,27 @@ export default function TabLayout() {
       <Tabs.Screen
         name="home"
         options={{
-          title: "home",
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: "Emergencia",
+          tabBarIcon: ({ color }) => <TabBarIcon name="hospital-o" color={color} />,
         }}
       />
       <Tabs.Screen
+
+        name="[id]"
+        options={{
+          title: "Pantalla",
+          tabBarIcon: ({ color }) => <TabBarIcon name="ambulance" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+
         name="form"
         options={{
           title: "Formulario",
-          tabBarIcon: ({ color }) => <TabBarIcon name="paperclip" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="wpforms" color={color} />,
         }}
       />
+     
     </Tabs>
   );
 }
