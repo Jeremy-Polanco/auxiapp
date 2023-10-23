@@ -11,7 +11,7 @@ export default function TabTwoScreen() {
   const initialTime = 10;
    const [time, setTime] = useState(initialTime);
  useEffect(() => {if(time === 0){
-   navigation.push('/(tabs)/screens/Atragantamientos/Paso2')
+   navigation.push('/(tabs)/screens/Electrocutaciones/Paso3')
  }}, [time] )
    useEffect(() => {
      const interval = setInterval(() => {
@@ -39,9 +39,7 @@ export default function TabTwoScreen() {
             height: 250,
             objectFit: "cover",
           }}
-          source={{
-            uri: "https://slpproprope001.blob.core.windows.net/2018/Proyectos/Proy010/Recursos/P10_ANI06/img/img10.gif",
-          }}
+          source={multi}
         />
       </View>
       <Text style={{ fontSize: 15, marginTop: 80, width: "80%" }}>

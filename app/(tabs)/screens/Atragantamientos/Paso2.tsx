@@ -10,7 +10,7 @@ export default function TabTwoScreen() {
  const initialTime = 10;
   const [time, setTime] = useState(initialTime);
 useEffect(() => {if(time === 0){
-  navigation.push('/(tabs)/screens/Atragantamientos/Paso2')
+  navigation.push('/(tabs)/screens/Atragantamientos/Paso3')
 }}, [time] )
   useEffect(() => {
     const interval = setInterval(() => {
