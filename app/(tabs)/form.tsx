@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { View, Text, TextInput, StyleSheet, TouchableHighlight,ScrollView,Alert } from "react-native"
 
 const TabFourScreen = () => {
 
-    const [inputValues, setInputValues] = useState({ 
+       const [inputValues, setInputValues] = useState({ 
         Alergias: '',
         Cedula: '',
         Edad: '',
@@ -15,11 +16,27 @@ const TabFourScreen = () => {
         numeroCasa: '',
 });
 
+const cargarDatos = async () => {
+    try {
+       // await AsyncStorage.removeItem('datos-formulario');
+      const jsonValue = await AsyncStorage.getItem('datos-formulario');
+      if(jsonValue != null){
+        setInputValues(JSON.parse(jsonValue));
+      }      
+    } catch (e) {
+        console.log('Error al leer los datos')
+    }
+  };
+
+useEffect(() => {
+    cargarDatos();
+  }, []);
+
    const handleInputChange = (text: string, inputName: string) => {
       setInputValues({ ...inputValues, [inputName]: text });
     };
   
-    const handlePrintValues = () => {
+    const handlePrintValues = async  () => {
 
         // VALIDACIONES
         if (validarObjeto(inputValues)) {
@@ -31,8 +48,16 @@ const TabFourScreen = () => {
                   return;
           }
           
-          //logica para persistir datos aqui
-          console.log('Todo correcto.');
+          try {
+              const jsonValue = JSON.stringify(inputValues);
+              await AsyncStorage.setItem('datos-formulario', jsonValue);
+              Alert.alert('Exito', 'Datos guardados satisfactoriamente.', [
+                {text: 'ACEPTAR', },
+              ]);
+            } catch (e) {
+              console.log('Error al guardar los datos')
+            }
+          
 
           } else {
             Alert.alert('Debe completar todos los campos', 'Complete todos los campos para un mejor contacto y gestion a la hora de cualquier emergencia.', [
@@ -42,6 +67,8 @@ const TabFourScreen = () => {
         
     };
 
+   
+
     
   return (
     <ScrollView>
@@ -49,35 +76,42 @@ const TabFourScreen = () => {
         <Text style={styles.title}>Formulario de registro</Text>
         <View style={styles.formContainer} >
             <TextInput
+            defaultValue={inputValues.Nombre}
                 style={styles.input}
                 placeholder="Nombre"
                 onChangeText={(text) => handleInputChange(text, 'Nombre')}
             />
              <TextInput
+             defaultValue={inputValues.Edad}
                 style={styles.input}
                 placeholder="Edad"
                 keyboardType="numeric"
                 onChangeText={(text) => handleInputChange(text, 'Edad')}
             />
             <TextInput
+            defaultValue={inputValues.Cedula}
                 style={styles.input}
                 placeholder="Cedula"
                 keyboardType="numeric" onChangeText={(text) => handleInputChange(text, 'Cedula')}
             />
             <TextInput
+            defaultValue={inputValues.Tipo_sangre}
                 style={styles.input}
                 placeholder="Tipo sangre" onChangeText={(text) => handleInputChange(text, 'Tipo_sangre')}
             />
               <TextInput
+              defaultValue={inputValues.Enfermedades}
                 style={styles.input}
                 placeholder="Enfermedades que padece" onChangeText={(text) => handleInputChange(text, 'Enfermedades')}
             />
         
               <TextInput
+              defaultValue={inputValues.Alergias}
                 style={styles.input}
                 placeholder="Alergias" onChangeText={(text) => handleInputChange(text, 'Alergias')}
             />
             <TextInput
+            defaultValue={inputValues.contacto1}
                 style={styles.input}
                 autoCapitalize="none"
         keyboardType="email-address"
@@ -85,6 +119,7 @@ const TabFourScreen = () => {
                 
             />
                <TextInput
+               defaultValue={inputValues.contacto2}
                 style={styles.input}
                 autoCapitalize="none"
         keyboardType="email-address"
@@ -92,12 +127,13 @@ const TabFourScreen = () => {
                 
             />
              <TextInput
+             defaultValue={inputValues.numeroCasa}
                 style={styles.input}
                 placeholder="Numero de residencia" 
                 keyboardType="numeric" onChangeText={(text) => handleInputChange(text, 'numeroCasa')}
             />
             <TouchableHighlight style={styles.button} underlayColor="#3e8651ff" onPress={handlePrintValues}>
-                <Text style={styles.buttonText}>Enviar</Text>
+                <Text style={styles.buttonText}>Guardar</Text>
             </TouchableHighlight>
         </View>
     </View>
