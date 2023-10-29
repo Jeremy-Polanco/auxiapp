@@ -2,6 +2,7 @@
 import { Image, StyleSheet, TouchableOpacity } from "react-native";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Text, View } from "../../components/Themed";
+import axios from 'axios';
 
 export default function Home() {
 
@@ -10,13 +11,18 @@ export default function Home() {
        // await AsyncStorage.removeItem('datos-formulario');
       const jsonValue = await AsyncStorage.getItem('datos-formulario');
       if(jsonValue != null){
-
-        //ENVIAR CORREOS CON 
-        // DATOS PERSONALES
-        // UBICACION
+        const body = JSON.parse(jsonValue);
+        body.ubicacion = 'CASA'; // invocar metodo que devuelva la ubicacion
+        console.log(body);
+  const url = 'https://enviocorreos-5ohidu6vqq-uc.a.run.app';
+  axios.post(url, body)
+    .then(response => {
+      console.log('Éxito:', response.data);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
         // LUEGO REALIZAR UNA LLAMADA AUTOMATICA AL 911
-
-
 
       }      
     } catch (e) {
@@ -51,3 +57,7 @@ const styles = StyleSheet.create({
     color: "white",
   },
 });
+
+
+
+

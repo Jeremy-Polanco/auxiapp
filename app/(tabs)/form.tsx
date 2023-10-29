@@ -14,6 +14,7 @@ const TabFourScreen = () => {
         contacto1: '',
         contacto2: '',
         numeroCasa: '',
+        ubicacion: '',
 });
 
 const cargarDatos = async () => {
