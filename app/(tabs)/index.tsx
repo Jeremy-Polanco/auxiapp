@@ -3,16 +3,27 @@ import { Image, StyleSheet, TouchableOpacity } from "react-native";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Text, View } from "../../components/Themed";
 import axios from 'axios';
+import * as Location from 'expo-location';
 
 export default function Home() {
 
-  const ActivarAlerta = async () => {
+  const ActivarAlerta = async () => { 
+
+      //SOLICITAR PERMISOS PARA OBTENER LA UBICACION UNA UNICA VEZ
+      let { status } = await Location.requestForegroundPermissionsAsync();
+      if (status !== 'granted') {
+        console.log('NO PERMISO');
+        return;
+      }
+      let location = await Location.getCurrentPositionAsync({});
+      const { latitude, longitude } = location.coords;
+      const ubicacion = `https://www.google.com/maps/search/?api=1&query=${latitude},${longitude}`;
+
     try {
-       // await AsyncStorage.removeItem('datos-formulario');
       const jsonValue = await AsyncStorage.getItem('datos-formulario');
       if(jsonValue != null){
         const body = JSON.parse(jsonValue);
-        body.ubicacion = 'CASA'; // invocar metodo que devuelva la ubicacion
+        body.ubicacion = ubicacion ?? 'DESCONOCIDA'; 
         console.log(body);
   const url = 'https://enviocorreos-5ohidu6vqq-uc.a.run.app';
   axios.post(url, body)
@@ -24,10 +35,12 @@ export default function Home() {
     });
         // LUEGO REALIZAR UNA LLAMADA AUTOMATICA AL 911
 
+
       }      
     } catch (e) {
         console.log('Error al leer los datos')
-    }
+}
+     
   };
 
   return (
@@ -57,7 +70,3 @@ const styles = StyleSheet.create({
     color: "white",
   },
 });
-
-
-
-
