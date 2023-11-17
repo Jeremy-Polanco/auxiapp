@@ -1,10 +1,11 @@
 import {
   View,
   Text,  
-  StyleSheet,  
+  StyleSheet,
+  
+    
 } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
-
 
 
 const TabFourScreen = () => {
@@ -12,46 +13,54 @@ const TabFourScreen = () => {
     <ScrollView>
     <View style={styles.container}>      
       
-      <Text style={styles.title}>Contactos de Emergencia </Text>
+      <Text style={styles.title}>Contactos de Emergencia </Text>    
 
-     
-             
+      <View style = {styles.contenedor}>
         <Text style={styles.text} > Sistema Nacional de Emergencias</Text>
-        <Text style={styles.text1} > 911</Text>
-        <hr style={styles.hr} />
-
+        <Text style={styles.text1} > 911</Text>    
+      </View>        
+                   
+      <View style = {styles.contenedor}>
         <Text style={styles.text} > Cruz Roja Dominicana</Text> 
-        <Text style={styles.text1} > 809-334-4545 </Text>
-        <hr style={styles.hr} />
+        <Text style={styles.text1} > 809-334-4545 </Text>        
+      </View>
 
+      <View style = {styles.contenedor}>
         <Text style={styles.text} > Policia Nacional</Text>
-        <Text style={styles.text1} > 809-682-3151 </Text>
-        <hr style={styles.hr} />
+        <Text style={styles.text1} > 809-682-3151 </Text>        
+      </View>
 
+      <View  style = {styles.contenedor}>
         <Text style={styles.text} > Cuerpo de Bomberos</Text>
-        <Text style={styles.text1} > 809-682-2000 </Text>
-        <hr style={styles.hr} />
+        <Text style={styles.text1} > 809-682-2000 </Text>        
+      </View>
 
+      <View  style = {styles.contenedor}>
         <Text style={styles.text} > Defensa Civil</Text>
-        <Text style={styles.text1} > 809-472-8614 </Text>
-        <hr style={styles.hr} />
+        <Text style={styles.text1} > 809-472-8614 </Text>       
+      </View>
 
+      <View  style = {styles.contenedor}>
         <Text style={styles.text} > Aero Ambulancia </Text>      
-        <Text style={styles.text1} > 809-826-4100 </Text>
-        <hr style={styles.hr} />
+        <Text style={styles.text1} > 809-826-4100 </Text>        
+      </View>
 
+      <View  style = {styles.contenedor}>
         <Text style={styles.text} > Centro Operaciones Emergencias (COE)</Text>
         <Text style={styles.text1} > 809-472-0909 </Text>
-        <hr style={styles.hr} />       
+      </View>   
 
-        <Text style={styles.text} > Corporación de Empresas Eléctricas Estatales (CDEEE) </Text>      
+
+      <View  style = {styles.contenedor}>
+        <Text style={styles.text} > Corporación de Empresas Eléctricas  (CDEEE) </Text>      
         <Text style={styles.text1} > 809-535-9098 </Text>
-        <hr style={styles.hr} />
+      </View>  
 
+
+      <View  style = {styles.contenedor}>
         <Text style={styles.text} > Oficina Nacional de Meteorologia (ONAMET) </Text>      
         <Text style={styles.text1} > 809-788-1122 </Text>
-        <hr style={styles.hr} />
-                      
+      </View>                      
       
     </View>
     </ScrollView>
@@ -62,10 +71,17 @@ const styles = StyleSheet.create({
   container: {
     marginLeft: 25,
     marginRight: 25,
-    flex: 1,
-    
-    
+    flex: 1,    
    
+  },
+
+  contenedor: {
+    height: 80,
+    borderWidth: 1,
+    borderRadius: 10,
+    backgroundColor: 'white',  
+    marginBottom: 10,  
+    
   },
   
   title: {
@@ -91,22 +107,7 @@ const styles = StyleSheet.create({
     color: 'red',
     
 
-  },
-
-  hr: {
-    color: 'black',
-    width: '100%'
-    
-    
-  },
-
-  imagen: {
-    width: 40,
-    height: 40,
-  }
- 
+  }, 
 });
-
-
 
 export default TabFourScreen;
