@@ -2,7 +2,7 @@ import { Image, StyleSheet, TouchableOpacity } from "react-native";
 import React, { useState, useEffect, useCallback } from 'react';
 import { useRouter, useFocusEffect, Link} from "expo-router";
 import { Text, View } from "../../../../components/Themed";
-import multi from "../../../../assets/images/Hipoglucemiapaso3.gif";
+import multi from "../../../../assets/images/Hipoglucemiapaso2.gif";
 
 
 export default function TabTwoScreen() {
@@ -42,8 +42,14 @@ useEffect(() => {if(time === 0){
         />
       </View>
       <Text style={{ fontSize: 15, marginTop: 80, width: "80%", textAlign: "justify" }}>
-      Colocarse detrás de la persona, inclinarla hacia adelante y darle 
-      cuatro golpes secos entre los omoplatos{" "}
+      Si esta consciente darle rapidamente por via oral de 10 a 20gr de azúcar:
+       Aproximadamente 10gr de azúcar equivalen a 
+       - 1 vaso de zumo de fruta
+       - 2 1/2 cucharadas o dos terrones de azucar
+       - 1 sobre de azucar de cafeteria
+       - 2 caramelos
+       - 2 cucharas de miel 
+       - 1 vaso de refresco de naranja o coca cola{" "}
       </Text>
       <View
         style={{

@@ -2,7 +2,7 @@ import { Image, StyleSheet, TouchableOpacity } from "react-native";
 import React, { useState, useEffect, useCallback } from 'react';
 import { useRouter, useFocusEffect, Link} from "expo-router";
 import { Text, View } from "../../../../components/Themed";
-import multi from "../../../../assets/images/Hipoglucemiapaso2.gif";
+import multi from "../../../../assets/images/Hipoglucemiapaso3.gif";
 
 
 
@@ -11,7 +11,7 @@ export default function TabTwoScreen() {
  const initialTime = 10;
   const [time, setTime] = useState(initialTime);
 useEffect(() => {if(time === 0){
-  navigation.push('/(tabs)/screens/Hipoglucemia/SiPaso1')
+  navigation.push('/(tabs)/home')
 }}, [time] )
   useEffect(() => {
     const interval = setInterval(() => {
@@ -43,14 +43,11 @@ useEffect(() => {if(time === 0){
         />
       </View>
       <Text style={{ fontSize: 15, marginTop: 80, width: "80%", textAlign: "justify" }}>
-      Si esta consciente darle rapidamente por via oral de 10 a 20gr de azúcar:
-       Aproximadamente 10gr de azúcar equivalen a 
-       - 1 vaso de zumo de fruta
-       - 2 1/2 cucharadas o dos terrones de azucar
-       - 1 sobre de azucar de cafeteria
-       - 2 caramelos
-       - 2 cucharas de miel 
-       - 1 vaso de refresco de naranja o coca cola{" "}
+      Si la persona con hipoglucemia se desmaya, no se despierta, o tiene convulsiones, 
+      llame al servicio de emergencia local de inmediato.
+      Recuerde no inyectar insulina (ya que la glucosa en la sangre bajará aún más),
+      no proporcionar alimentos o líquidos (la persona puede ahogarse), no poner las manos 
+      en la boca (la persona puede ahogarse). {" "}
       </Text>
       <View
         style={{
@@ -70,7 +67,7 @@ useEffect(() => {if(time === 0){
             paddingHorizontal: 10,
           }}
         >
-          <Link href={'/(tabs)/screens/Hipoglucemia/SiPaso1'}>Saltar {">>"}</Link>
+          <Link href={'/(tabs)/home'}>Saltar {">>"}</Link>
         </TouchableOpacity>
 
         <Text>Tiempo: {time}</Text>

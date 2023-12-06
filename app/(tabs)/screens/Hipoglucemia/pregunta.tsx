@@ -1,6 +1,7 @@
 import { Image, StyleSheet, TouchableOpacity } from "react-native";
 
 import { Text, View } from "../../../../components/Themed";
+import { Link } from "expo-router";
 
 
 export default function TabTwoScreen() {
@@ -31,9 +32,8 @@ export default function TabTwoScreen() {
             paddingHorizontal: 10,
           }}
         >
-          <Text>Si {">"}</Text>
-
-          <Text>No {"X"}</Text>
+          <Link href={'/(tabs)/screens/Hipoglucemia/SiPaso1'}>Si {">"}</Link>
+           <Link href={'/(tabs)/screens/Hipoglucemia/NoPaso1'}>No {"X"}</Link>
         </TouchableOpacity>
 
         
