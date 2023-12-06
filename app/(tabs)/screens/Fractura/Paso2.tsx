@@ -42,7 +42,7 @@ export default function TabTwoScreen() {
           source={multi}
         />
       </View>
-      <Text style={{ fontSize: 15, marginTop: 80, width: "80%" }}>
+      <Text style={{ fontSize: 15, marginTop: 80, width: "80%" , textAlign: "justify"}}>
        Si es imprescindible desplazarlo, inmovilizar el miembro con dos ferula acolchadas, uno a
         cada lado del miembro afectado y atarlo por varios puntos.{" "}
       </Text>

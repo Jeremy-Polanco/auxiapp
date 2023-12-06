@@ -40,7 +40,7 @@ export default function TabTwoScreen() {
           source={multi}
         />
       </View>
-      <Text style={{ fontSize: 15, marginTop: 80, width: "80%" }}>
+      <Text style={{ fontSize: 15, marginTop: 80, width: "80%" , textAlign: "justify"}}>
       Cortar la corriente de la conducción principal antes de dar atención de primeros auxilios.
       Si no es posible cortarla pararse en una superficie seca de caucho o madera.{" "}
       </Text>

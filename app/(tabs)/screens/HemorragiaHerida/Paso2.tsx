@@ -42,7 +42,7 @@ export default function TabTwoScreen() {
           source={multi}
         />
       </View>
-      <Text style={{ fontSize: 15, marginTop: 80, width: "80%" }}>
+      <Text style={{ fontSize: 15, marginTop: 80, width: "80%" , textAlign: "justify" }}>
       Presionar directamente aplicando sobre la herida una gasa, tela limpia o vendaje.
       Elevar la parte lesionada. Si la herida esta situada en un miembro superior o inferior,
        hay que levantarlo a un nivel superior al corazón, presionando simultáneamente{" "}

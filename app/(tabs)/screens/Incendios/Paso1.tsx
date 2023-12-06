@@ -42,7 +42,7 @@ export default function TabTwoScreen() {
           source={multi}
         />
       </View>
-      <Text style={{ fontSize: 15, marginTop: 80, width: "80%" }}>
+      <Text style={{ fontSize: 15, marginTop: 80, width: "80%" , textAlign: "justify" }}>
       Retira el pasador de seguridad o anillo extintor.
       Verifica si el extintor está correctamente presurizado. ¿Cómo? Fíjate 
       que la aguja del manómetro esté en la zona verde. Si no lo está, no tendrá 

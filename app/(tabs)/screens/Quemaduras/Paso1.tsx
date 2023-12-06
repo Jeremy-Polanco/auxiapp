@@ -42,7 +42,7 @@ export default function TabTwoScreen() {
           source={multi}
         />
       </View>
-      <Text style={{ fontSize: 15, marginTop: 80, width: "80%" }}>
+      <Text style={{ fontSize: 15, marginTop: 80, width: "80%" , textAlign: "justify" }}>
         Lavar la piel con abundante agua OJO:En caso de compuestos que reaccionan violentamente con el agua -sulfurico, metales alcalinos, carburos, etc- 
         hay que secar el compuesto con una gasa antes de poner la piel en contacto con el agua.{" "}
       </Text>

@@ -42,7 +42,7 @@ export default function TabTwoScreen() {
           source={multi}
         />
       </View>
-      <Text style={{ fontSize: 15, marginTop: 80, width: "80%" }}>
+      <Text style={{ fontSize: 15, marginTop: 80, width: "80%" , textAlign: "justify" }}>
        No movilizar a la persona, salvo que sea necesario. No movilizar el miembro afectado. No intentar
        colocar los huesos en su sitio{" "}
       </Text>

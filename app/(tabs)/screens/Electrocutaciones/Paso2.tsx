@@ -42,7 +42,7 @@ export default function TabTwoScreen() {
           source={multi}
         />
       </View>
-      <Text style={{ fontSize: 15, marginTop: 80, width: "80%" }}>
+      <Text style={{ fontSize: 15, marginTop: 80, width: "80%" , textAlign: "justify"}}>
       RECUERDE! No tocar con las manos al accidentado porque se recibiria la descarga electrica.
       Retirar al accidentado de la fuente eléctrica con un objeto de madera o plástico{" "}
       </Text>

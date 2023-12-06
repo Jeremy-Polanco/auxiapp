@@ -43,7 +43,7 @@ useEffect(() => {if(time === 0){
           source={multi}
         />
       </View>
-      <Text style={{ fontSize: 15, marginTop: 80, width: "80%" }}>
+      <Text style={{ fontSize: 15, marginTop: 80, width: "80%", textAlign: "justify" }}>
       Colocarse detrás de la persona, inclinarla hacia adelante y darle 
       cuatro golpes secos entre los omoplatos{" "}
       </Text>
@@ -65,7 +65,7 @@ useEffect(() => {if(time === 0){
             paddingHorizontal: 10,
           }}
         >
-          <Link href={'/(tabs)/screens/Atragantamientos/pregunta'}>Saltar {">>"}</Link>
+          <Link href={'/(tabs)/screens/Atragantamientos/Paso2'}>Saltar {">>"}</Link>
         </TouchableOpacity>
 
         <Text>Tiempo: {time}</Text>

@@ -40,7 +40,7 @@ useEffect(() => {if(time === 0){
           source={multi}
         />
       </View>
-      <Text style={{ fontSize: 15, marginTop: 80, width: "80%" }}>
+      <Text style={{ fontSize: 15, marginTop: 80, width: "80%" , textAlign: "justify" }}>
       Maniobra de HEIMLICH
       Realice una fuerte presión hacia adentro y hacia arriba, repitiendo de 6 a 8 veces.{" "}
       </Text>

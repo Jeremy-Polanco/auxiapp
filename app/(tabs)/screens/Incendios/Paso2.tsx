@@ -42,7 +42,7 @@ export default function TabTwoScreen() {
           source={multi}
         />
       </View>
-      <Text style={{ fontSize: 15, marginTop: 80, width: "80%" }}>
+      <Text style={{ fontSize: 15, marginTop: 80, width: "80%" , textAlign: "justify" }}>
       Aborda el fuego en dirección al viento.
       Apunta la manguera hacia la base y a 3 metros del fuego.{" "}
       </Text>

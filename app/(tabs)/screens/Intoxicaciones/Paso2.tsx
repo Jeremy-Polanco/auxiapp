@@ -42,7 +42,7 @@ export default function TabTwoScreen() {
           source={multi}
         />
       </View>
-      <Text style={{ fontSize: 15, marginTop: 80, width: "80%" }}>
+      <Text style={{ fontSize: 15, marginTop: 80, width: "80%" , textAlign: "justify" }}>
         Lavar con abundante agua la piel, sin frotar. Si salpico los ojos lavarlos con agua durante 10 o 15 minutos.
         OJO: LLevar con usted la etiqueta del producto al centro sanitario{" "}
       </Text>

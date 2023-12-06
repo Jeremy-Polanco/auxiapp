@@ -43,7 +43,7 @@ export default function TabTwoScreen() {
           source={multi}
         />
       </View>
-      <Text style={{ fontSize: 15, marginTop: 80, width: "80%" }}>
+      <Text style={{ fontSize: 15, marginTop: 80, width: "80%" , textAlign: "justify" }}>
       Valorar la respiracion y pulso; si no están presentes practicar la reanimacion cardiopulmonar.{" "}
       </Text>
       <View

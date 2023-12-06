@@ -42,7 +42,7 @@ useEffect(() => {if(time === 0){
           source={multi}
         />
       </View>
-      <Text style={{ fontSize: 15, marginTop: 80, width: "80%" }}>
+      <Text style={{ fontSize: 15, marginTop: 80, width: "80%" , textAlign: "justify" }}>
       Maniobra de HEIMLICH
       Coloquese detras de la persona rodeandola con los brazos.
       Cierre una mano y coloquesela entre ombligo y esternón cogiendose el puño con la otra mano{" "}

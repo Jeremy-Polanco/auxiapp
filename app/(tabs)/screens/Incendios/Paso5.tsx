@@ -43,7 +43,7 @@ export default function TabTwoScreen() {
           source={multi}
         />
       </View>
-      <Text style={{ fontSize: 15, marginTop: 80, width: "80%" }}>
+      <Text style={{ fontSize: 15, marginTop: 80, width: "80%" , textAlign: "justify" }}>
       Apagado el fuego, deje el extintor en el piso en forma horizontal.
       Esto es para que los bomberos y/o personal encargado sepan que este ha sido usado y debe ser recargado.{" "}
       </Text>

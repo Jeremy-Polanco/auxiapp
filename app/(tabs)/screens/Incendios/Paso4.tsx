@@ -42,7 +42,7 @@ export default function TabTwoScreen() {
           source={multi}
         />
       </View>
-      <Text style={{ fontSize: 15, marginTop: 80, width: "80%" }}>
+      <Text style={{ fontSize: 15, marginTop: 80, width: "80%" , textAlign: "justify" }}>
       Mueve la manguera de un lado al otro (movimiento zig zag).
       Durante el uso, mantenga el extintor vertical.
       Para dejar de descargar el extintor, suelta la palanca.{" "}

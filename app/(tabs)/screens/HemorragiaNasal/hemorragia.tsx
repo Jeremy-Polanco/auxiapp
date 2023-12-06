@@ -1,6 +1,7 @@
 import { Image, StyleSheet, TouchableOpacity } from "react-native";
 
 import { Text, View } from "../../../../components/Themed";
+import { Link } from "expo-router";
 
 
 export default function TabTwoScreen() {
@@ -20,7 +21,7 @@ export default function TabTwoScreen() {
           }}
         />
       </View>
-      <Text style={{ fontSize: 15, marginTop: 80, width: "80%" }}>
+      <Text style={{ fontSize: 15, marginTop: 80, width: "80%" , textAlign: "justify"}}>
         Ante una hemorragia nasal, lo primero que hay que hacer es inclinar la
         cabeza para evitar tragar sangre. A la vez presiona la nariz durante
         unos minutos hasta que deje de sangrar{" "}
@@ -43,7 +44,8 @@ export default function TabTwoScreen() {
             paddingHorizontal: 10,
           }}
         >
-          <Text>Saltar {">>"}</Text>
+          
+          <Link href={'/(tabs)/home'}>Saltar {">>"}</Link>
         </TouchableOpacity>
 
         <Text>Tiempo: 00</Text>

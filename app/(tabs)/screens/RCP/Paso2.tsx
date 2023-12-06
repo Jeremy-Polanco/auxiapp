@@ -1,10 +1,33 @@
 import { Image, StyleSheet, TouchableOpacity } from "react-native";
-
+import React, { useState, useEffect, useCallback } from 'react';
+import { useRouter, useFocusEffect, Link} from "expo-router";
 import { Text, View } from "../../../../components/Themed";
+import multi from "../../../../assets/images/RCPpaso2.gif";
 
 
 export default function TabTwoScreen() {
- 
+ const navigation = useRouter();
+ const initialTime = 10;
+  const [time, setTime] = useState(initialTime);
+useEffect(() => {if(time === 0){
+  navigation.push('/(tabs)/home')
+}}, [time] )
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (time > 0) {
+        setTime(time - 1);
+      }
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [time]);
+
+  useFocusEffect(
+    React.useCallback(() => {
+      // Start the timer when the screen comes into focus
+      setTime(initialTime);
+    }, [])
+  );
 
   return (
     <View style={styles.container}>
@@ -15,16 +38,15 @@ export default function TabTwoScreen() {
             height: 250,
             objectFit: "cover",
           }}
-          source={{
-            uri: "https://slpproprope001.blob.core.windows.net/2018/Proyectos/Proy010/Recursos/P10_ANI06/img/img10.gif",
-          }}
+          source={multi}
         />
       </View>
-      <Text style={{ fontSize: 15, marginTop: 80, width: "80%" }}>
-      Ubica la base de tu mano al centro del pecho. Pon tu otra mano sobre la que 
-      está en el pecho y estira tus codos. 
-      Con los hombros encima de tus manos, presiona con firmeza el pecho entre 5 y 6
-     centímetros hacia abajo. Usa el peso de tu cuerpo.{" "}
+      <Text style={{ fontSize: 15, marginTop: 80, width: "80%", textAlign: "justify" }}>
+      Abrir las vias respiratorias, inclinando la cabeza y levantando el menton
+      de la persona, aprieta sus fosas nasales para dar respiracion boca a boca.
+      Si el pecho se eleva, proporciona la segunda respiracion.
+      En caso contrario, repite la maniobra de inclinar el menton para Abrir
+      las vias respiratorias y proporciona otra respiracion.{" "}
       </Text>
       <View
         style={{
@@ -44,10 +66,10 @@ export default function TabTwoScreen() {
             paddingHorizontal: 10,
           }}
         >
-          <Text>Saltar {">>"}</Text>
+          <Link href={'/(tabs)/home'}>Saltar {">>"}</Link>
         </TouchableOpacity>
 
-        <Text>Tiempo: 00</Text>
+        <Text>Tiempo: {time}</Text>
       </View>
     </View>
   );

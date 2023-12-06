@@ -1,10 +1,33 @@
 import { Image, StyleSheet, TouchableOpacity } from "react-native";
-
+import React, { useState, useEffect, useCallback } from 'react';
+import { useRouter, useFocusEffect, Link} from "expo-router";
 import { Text, View } from "../../../../components/Themed";
+import multi from "../../../../assets/images/RCPpaso1.gif";
 
 
 export default function TabTwoScreen() {
- 
+ const navigation = useRouter();
+ const initialTime = 10;
+  const [time, setTime] = useState(initialTime);
+useEffect(() => {if(time === 0){
+  navigation.push('/(tabs)/screens/RCP/Paso2')
+}}, [time] )
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (time > 0) {
+        setTime(time - 1);
+      }
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [time]);
+
+  useFocusEffect(
+    React.useCallback(() => {
+      // Start the timer when the screen comes into focus
+      setTime(initialTime);
+    }, [])
+  );
 
   return (
     <View style={styles.container}>
@@ -15,14 +38,14 @@ export default function TabTwoScreen() {
             height: 250,
             objectFit: "cover",
           }}
-          source={{
-            uri: "https://slpproprope001.blob.core.windows.net/2018/Proyectos/Proy010/Recursos/P10_ANI06/img/img10.gif",
-          }}
+          source={multi}
         />
       </View>
-      <Text style={{ fontSize: 15, marginTop: 80, width: "80%" }}>
-      Tiende a la persona sobre su espalda mirando hacia arriba en una superficie dura.
-      Ponte de rodillas al costado, a la altura de su cuello.{" "}
+      <Text style={{ fontSize: 15, marginTop: 80, width: "80%" , textAlign: "justify"}}>
+      Recuesta a la persona sobre su espalda mirando hacia arriba en una superficie dura.
+      Ponte de rodillas al costado, a la altura de su cuello.
+      Coloca la parte inferior de la palma de tu mano sobre el centro del pecho de la persona.
+      Presiona con firmeza, usando todo el peso de tu cuerpo.{" "}
       </Text>
       <View
         style={{
@@ -42,10 +65,10 @@ export default function TabTwoScreen() {
             paddingHorizontal: 10,
           }}
         >
-          <Text>Saltar {">>"}</Text>
+          <Link href={'/(tabs)/screens/RCP/Paso2'}>Saltar {">>"}</Link>
         </TouchableOpacity>
 
-        <Text>Tiempo: 00</Text>
+        <Text>Tiempo: {time}</Text>
       </View>
     </View>
   );

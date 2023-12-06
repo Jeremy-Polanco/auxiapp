@@ -42,7 +42,7 @@ export default function TabTwoScreen() {
           source={multi}
         />
       </View>
-      <Text style={{ fontSize: 15, marginTop: 80, width: "80%" }}>
+      <Text style={{ fontSize: 15, marginTop: 80, width: "80%" , textAlign: "justify" }}>
       Para liberar el agente extintor, aprieta la palanca o ala superior.
       Realizar una prueba corta de uno o dos segundos para verificar que esté funcionando correctamente.{" "}
       </Text>

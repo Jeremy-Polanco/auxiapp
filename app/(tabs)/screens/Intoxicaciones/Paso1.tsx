@@ -19,7 +19,7 @@ export default function TabTwoScreen() {
          setTime(time - 1);
        }
      }, 1000);
- 
+
      return () => clearInterval(interval);
    }, [time]);
  
@@ -42,7 +42,7 @@ export default function TabTwoScreen() {
           source={multi}
         />
       </View>
-      <Text style={{ fontSize: 15, marginTop: 80, width: "80%" }}>
+      <Text style={{ fontSize: 15, marginTop: 80, width: "80%" , textAlign: "justify" }}>
         Quitarse la ropa empapada en el producto{" "}
       </Text>
       <View
