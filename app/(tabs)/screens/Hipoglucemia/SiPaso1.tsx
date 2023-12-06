@@ -1,10 +1,33 @@
 import { Image, StyleSheet, TouchableOpacity } from "react-native";
-
+import React, { useState, useEffect, useCallback } from 'react';
+import { useRouter, useFocusEffect, Link} from "expo-router";
 import { Text, View } from "../../../../components/Themed";
+import multi from "../../../../assets/images/Hipoglucemiapaso3.gif";
 
 
 export default function TabTwoScreen() {
- 
+ const navigation = useRouter();
+ const initialTime = 10;
+  const [time, setTime] = useState(initialTime);
+useEffect(() => {if(time === 0){
+  navigation.push('/(tabs)/home')
+}}, [time] )
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (time > 0) {
+        setTime(time - 1);
+      }
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [time]);
+
+  useFocusEffect(
+    React.useCallback(() => {
+      // Start the timer when the screen comes into focus
+      setTime(initialTime);
+    }, [])
+  );
 
   return (
     <View style={styles.container}>
@@ -15,20 +38,12 @@ export default function TabTwoScreen() {
             height: 250,
             objectFit: "cover",
           }}
-          source={{
-            uri: "https://slpproprope001.blob.core.windows.net/2018/Proyectos/Proy010/Recursos/P10_ANI06/img/img10.gif",
-          }}
+          source={multi}
         />
       </View>
-      <Text style={{ fontSize: 15, marginTop: 80, width: "80%" }}>
-       Si esta consciente darle rapidamente por via oral de 10 a 20gr de azúcar:
-       Aproximadamente 10gr de azúcar equivalen a 
-       - 1 vaso de zumo de fruta
-       - 2 1/2 cucharadas o dos terrones de azucar
-       - 1 sobre de azucar de cafeteria
-       - 2 caramelos
-       - 2 cucharas de miel 
-       - 1 vaso de refresco de naranja o coca cola{" "}
+      <Text style={{ fontSize: 15, marginTop: 80, width: "80%", textAlign: "justify" }}>
+      Colocarse detrás de la persona, inclinarla hacia adelante y darle 
+      cuatro golpes secos entre los omoplatos{" "}
       </Text>
       <View
         style={{
@@ -48,10 +63,10 @@ export default function TabTwoScreen() {
             paddingHorizontal: 10,
           }}
         >
-          <Text>Saltar {">>"}</Text>
+          <Link href={'/(tabs)/home'}>Saltar {">>"}</Link>
         </TouchableOpacity>
 
-        <Text>Tiempo: 00</Text>
+        <Text>Tiempo: {time}</Text>
       </View>
     </View>
   );

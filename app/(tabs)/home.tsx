@@ -13,7 +13,7 @@ const buttons = [
   { id: 5, title: "Hemorragia Nasal", href: "/(tabs)/screens/HemorragiaNasal/hemorragia" },
   { id: 6, title: "Hemorragia Herida", href: "/(tabs)/screens/HemorragiaHerida/Paso1" },
   { id: 7, title: "Atragantamiento", href: "/(tabs)/screens/Atragantamientos/Paso1" },
-  { id: 8, title: "Hipoglucemia", href: "/(tabs)/screens/Hipoglucemia/Paso1" },
+  { id: 8, title: "Hipoglucemia", href: "/(tabs)/screens/Hipoglucemia/NoPaso1" },
   { id: 9, title: "Fractura", href: "/(tabs)/screens/Fractura/Paso1" },
   { id: 10, title: "RCP", href: "/(tabs)/screens/RCP/Paso1" },
 ];
