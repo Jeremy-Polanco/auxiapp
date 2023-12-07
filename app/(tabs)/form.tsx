@@ -8,7 +8,9 @@ import {
   TouchableHighlight,
   ScrollView,
   Alert,
+  SafeAreaView,
 } from "react-native";
+import { useNavigation, useRouter } from "expo-router";
 
 const TabFourScreen = () => {
   const [inputValues, setInputValues] = useState({
@@ -81,9 +83,10 @@ const TabFourScreen = () => {
   };
 
   return (
-    <ScrollView>
+    <SafeAreaView style={{ top: 25 }}>
+      <ScrollView>
       <View style={styles.container}>
-        <Text style={styles.title}>Formulario de registro</Text>
+        <Text style={styles.title}>Datos de emergencia</Text>
         <View style={styles.formContainer}>
           <TextInput
             defaultValue={inputValues.Nombre}
@@ -157,6 +160,7 @@ const TabFourScreen = () => {
         </View>
       </View>
     </ScrollView>
+    </SafeAreaView>
   );
 };
 

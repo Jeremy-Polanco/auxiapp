@@ -4,17 +4,23 @@ import { useRouter, useFocusEffect, Link} from "expo-router";
 
 
 import { Text, View } from "../../../../components/Themed";
-
+import QuestionMark from "../../../../assets/images/Interrogante.png";
 
 export default function TabTwoScreen() {
   
 
   return (
     <View style={styles.container}>
-      <View style={styles.buttonWrapper}>
+      <View>
+        <Image style={{
+          width: 200,
+          height: 200,
+    objectFit: "contain",
+    alignSelf: "center",
+  }} source={QuestionMark} />
       </View>
-      <Text style={{ fontSize: 15, marginTop: 80, width: "80%" }}>
-      Es necesaria la reanimación cardiopulmonar?.{" "}
+      <Text style={{ fontSize: 22, fontWeight: "bold", marginTop: 80, marginHorizontal: 'auto' }}>
+      ¿Es necesaria la reanimación cardiopulmonar?{" "}
       </Text>
       <View
         style={{
@@ -27,6 +33,19 @@ export default function TabTwoScreen() {
         <TouchableOpacity
           style={{
             width: 80,
+            borderColor: "green",
+            borderWidth: 2,
+            borderRadius: 6,
+            padding: 6,
+            paddingHorizontal: 10,
+          }}
+        >
+          <Link style={{ fontSize: 18 }} href={'/(tabs)/screens/RCP/Paso1'}>Si {">"}</Link>      
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={{
+            width: 80,
             borderColor: "red",
             borderWidth: 2,
             borderRadius: 6,
@@ -34,14 +53,8 @@ export default function TabTwoScreen() {
             paddingHorizontal: 10,
           }}
         >
-          <Link href={'/(tabs)/screens/RCP/Paso1'}>Si {">"}</Link>
-     
-          <Link href={'/(tabs)/home'}>No {"X"}</Link>
-
-          
+          <Link style={{ fontSize: 18 }} href={'/(tabs)/home'}>No {"X"}</Link>
         </TouchableOpacity>
-
-        
       </View>
     </View>
   );

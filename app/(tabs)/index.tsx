@@ -9,6 +9,7 @@ import { Text, View } from "../../components/Themed";
 import axios from "axios";
 import * as Location from "expo-location";
 import { useEffect, useState } from "react";
+import { Alert } from 'react-native';
 import { useRouter } from "expo-router";
 
 export default function Home() {
@@ -58,6 +59,18 @@ export default function Home() {
     const jsonValue = await AsyncStorage.getItem("datos-formulario");
 
     const value = JSON.parse(jsonValue as string);
+
+    if (!value) {
+      Alert.alert('Necesitamos tu información', 'Para poder brindarte auxilio cuando lo necesites, debemos almacenar tu información de contacto de emergencia.', [
+        {
+          text: 'Aceptar',
+          onPress: () => {
+            router.push('/(tabs)/form');
+          },
+        },
+      ],
+      { cancelable: false },);
+    }
 
     setUser(value);
   };

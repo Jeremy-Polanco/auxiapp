@@ -28,6 +28,13 @@ export default function TabTwoScreen() {
      }, [])
    );
 
+  function formatSeconds(seconds: number) {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+
+    return `${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(2, '0')}`;
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.buttonWrapper}>
@@ -40,7 +47,7 @@ export default function TabTwoScreen() {
           source={multi}
         />
       </View>
-      <Text style={{ fontSize: 15, marginTop: 80, width: "80%" , textAlign: "justify"}}>
+      <Text style={{ fontSize: 18, marginTop: 80, width: "80%" , textAlign: "justify"}}>
       Cortar la corriente de la conducción principal antes de dar atención de primeros auxilios.
       Si no es posible cortarla pararse en una superficie seca de caucho o madera.{" "}
       </Text>
@@ -49,12 +56,13 @@ export default function TabTwoScreen() {
           width: "90%",
           flexDirection: "row",
           justifyContent: "space-around",
+          alignItems: 'center',
           marginTop: 100,
         }}
       >
         <TouchableOpacity
           style={{
-            width: 80,
+            width: 100,
             borderColor: "red",
             borderWidth: 2,
             borderRadius: 6,
@@ -62,10 +70,10 @@ export default function TabTwoScreen() {
             paddingHorizontal: 10,
           }}
         >
-          <Link href={'/(tabs)/screens/Electrocutaciones/Paso2'}>Saltar {">>"}</Link>
+          <Link style={{ fontSize: 18 }} href={'/(tabs)/screens/Electrocutaciones/Paso2'}>Saltar {">>"}</Link>
         </TouchableOpacity>
 
-        <Text>Tiempo: {time}</Text>
+        <Text style={{ fontSize: 18 }}>Tiempo: {formatSeconds(time)}</Text>
       </View>
     </View>
   );

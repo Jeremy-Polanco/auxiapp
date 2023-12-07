@@ -1,6 +1,7 @@
 import { Image, StyleSheet, TouchableOpacity } from "react-native";
 
 import { Text, View } from "../../../../components/Themed";
+import QuestionMark from "../../../../assets/images/Interrogante.png";
 import { Link } from "expo-router";
 
 
@@ -9,36 +10,41 @@ export default function TabTwoScreen() {
 
   return (
     <View style={styles.container}>
-      <View style={styles.buttonWrapper}>
+      <View>
+        <Image style={{
+          width: 200,
+    objectFit: "contain",
+  }} source={QuestionMark} />
       </View>
+      
       <Text style={{ fontSize: 15, marginTop: 80, width: "80%" }}>
-      Hay hemorragia?.{" "}
-      </Text>
-      <View
-        style={{
-          width: "90%",
-          flexDirection: "row",
-          justifyContent: "space-around",
-          marginTop: 100,
-        }}
-      >
-        <TouchableOpacity
+        Hay hemorragia?.{" "}
+        </Text>
+        <View
           style={{
-            width: 80,
-            borderColor: "red",
-            borderWidth: 2,
-            borderRadius: 6,
-            padding: 6,
-            paddingHorizontal: 10,
+            width: "90%",
+            flexDirection: "row",
+            justifyContent: "space-around",
+            marginTop: 100,
           }}
         >
-          <Link href={'/(tabs)/home'}>Si {">"}</Link>
-           <Link href={'/(tabs)/screens/Fractura/Paso2'}>No {"X"}</Link>
-        </TouchableOpacity>
+          <TouchableOpacity
+            style={{
+              width: 80,
+              borderColor: "red",
+              borderWidth: 2,
+              borderRadius: 6,
+              padding: 6,
+              paddingHorizontal: 10,
+            }}
+          >
+            <Link href={'/(tabs)/home'}>Si {">"}</Link>
+            <Link href={'/(tabs)/screens/Fractura/Paso2'}>No {"X"}</Link>
+          </TouchableOpacity>
 
-        
-      </View>
-    </View>
+          
+        </View>
+        </View>
   );
 }
 
@@ -47,8 +53,6 @@ export default function TabTwoScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
   },
   buttonWrapper: {
     width: 250,

@@ -6,8 +6,8 @@ import QuestionMark from "../../../../assets/images/Interrogante.png";
 export default function TabTwoScreen() {
   return (
     <View style={styles.container}>
-      <View style={{ backgroundColor: "red" }}>
-        {/* <Image style={styles.logoImage} source={QuestionMark}></Image> */}
+      <View>
+        <Image style={styles.logoImage} source={QuestionMark}></Image>
       </View>
       <Text style={{ fontSize: 15, marginTop: 80, width: "80%" }}>
         Logro sacar el objeto de las vias respiratorias?.{" "}

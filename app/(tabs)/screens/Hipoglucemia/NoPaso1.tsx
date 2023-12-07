@@ -42,7 +42,7 @@ useEffect(() => {if(time === 0){
           source={multi}
         />
       </View>
-      <Text style={{ fontSize: 15, marginTop: 80, width: "80%", textAlign: "justify" }}>
+      <Text style={{ fontSize: 18, marginTop: 80, width: "80%", textAlign: "justify" }}>
       Colocarse detrás de la persona, inclinarla hacia adelante y darle 
       cuatro golpes secos entre los omoplatos{" "}
       </Text>
