@@ -21,6 +21,7 @@ export default function TabLayout() {
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
+        headerShown: false,
       }}
       tabBar={(props) => <TabBar {...props} />}
     ></Tabs>
@@ -37,7 +38,6 @@ const TabBar = ({ navigation }: any) => {
       { id: 2, name: "home" as any },
       { id: 3, name: "vista" as any },
       { id: 4, name: "form" as any },
-      
     ];
   }, []);
 
@@ -70,7 +70,6 @@ const TabBar = ({ navigation }: any) => {
           case "form":
             iconName = "wpforms";
             break;
-         
         }
 
         if (iconName === "home") {

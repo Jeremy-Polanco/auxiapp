@@ -1,18 +1,18 @@
 import { Image, StyleSheet, TouchableOpacity } from "react-native";
-import { Link} from "expo-router";
-import { Text, View} from "../../../../components/Themed";
-
+import { Link } from "expo-router";
+import { Text, View } from "../../../../components/Themed";
+import QuestionMark from "../../../../assets/images/Interrogante.png";
 
 export default function TabTwoScreen() {
- 
-
   return (
     <View style={styles.container}>
-      <View style={styles.buttonWrapper}>
+      <View style={{ backgroundColor: "red" }}>
+        {/* <Image style={styles.logoImage} source={QuestionMark}></Image> */}
       </View>
       <Text style={{ fontSize: 15, marginTop: 80, width: "80%" }}>
-      Logro sacar el objeto de las vias respiratorias?.{" "}
+        Logro sacar el objeto de las vias respiratorias?.{" "}
       </Text>
+
       <View
         style={{
           width: "90%",
@@ -31,19 +31,13 @@ export default function TabTwoScreen() {
             paddingHorizontal: 10,
           }}
         >
-           <Link href={'/(tabs)/home'}>Si {">"}</Link>
-           <Link href={'/(tabs)/screens/Atragantamientos/Paso2'}>No {"X"}</Link>
-     
-          
+          <Link href={"/(tabs)/home"}>Si {">"}</Link>
+          <Link href={"/(tabs)/screens/Atragantamientos/Paso2"}>No {"X"}</Link>
         </TouchableOpacity>
-
-        
       </View>
     </View>
   );
 }
-
-
 
 const styles = StyleSheet.create({
   container: {
@@ -66,5 +60,9 @@ const styles = StyleSheet.create({
     marginVertical: 30,
     height: 1,
     width: "80%",
+  },
+  logoImage: {
+    objectFit: "contain",
+    alignSelf: "center",
   },
 });
