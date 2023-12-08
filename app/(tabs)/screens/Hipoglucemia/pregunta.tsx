@@ -15,10 +15,12 @@ export default function TabTwoScreen() {
       <View>
         <Image style={{
           width: 200,
+          height: 200,
     objectFit: "contain",
+    alignSelf: "center",
   }} source={QuestionMark} />
       </View>
-      <Text style={{ fontSize: 15, marginTop: 80, width: "80%" }}>
+      <Text style={{ fontSize: 22, fontWeight: "bold", marginTop: 80, marginHorizontal: 'auto'  }}>
       La persona esta consciente?.{" "}
       </Text>
       <View
@@ -32,6 +34,19 @@ export default function TabTwoScreen() {
         <TouchableOpacity
           style={{
             width: 80,
+            borderColor: "green",
+            borderWidth: 2,
+            borderRadius: 6,
+            padding: 6,
+            paddingHorizontal: 10,
+          }}
+        >
+          <Link style={{ fontSize: 18 }} href={'/(tabs)/screens/Hipoglucemia/SiPaso1'}>Si {">"}</Link>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+          style={{
+            width: 80,
             borderColor: "red",
             borderWidth: 2,
             borderRadius: 6,
@@ -39,8 +54,7 @@ export default function TabTwoScreen() {
             paddingHorizontal: 10,
           }}
         >
-          <Link href={'/(tabs)/screens/Hipoglucemia/SiPaso1'}>Si {">"}</Link>
-           <Link href={'/(tabs)/screens/Hipoglucemia/NoPaso1'}>No {"X"}</Link>
+           <Link style={{ fontSize: 18 }} href={'/(tabs)/screens/Hipoglucemia/NoPaso1'}>No {"X"}</Link>
         </TouchableOpacity>
 
         

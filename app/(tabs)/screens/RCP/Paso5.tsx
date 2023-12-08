@@ -1,10 +1,42 @@
 import { Image, StyleSheet, TouchableOpacity } from "react-native";
+import React, { useState, useEffect, useCallback } from 'react';
+import { useRouter, useFocusEffect, Link} from "expo-router";
 
 import { Text, View } from "../../../../components/Themed";
+import multi from "../../../../assets/images/RCPpaso5.gif";
 
 
 export default function TabTwoScreen() {
+  const navigation = useRouter();
+  const initialTime = 10;
+   const [time, setTime] = useState(initialTime);
+ useEffect(() => {if(time === 0){
+   navigation.push('/(tabs)/home')
+ }}, [time] )
+   useEffect(() => {
+     const interval = setInterval(() => {
+       if (time > 0) {
+         setTime(time - 1);
+       }
+     }, 2000);
  
+     return () => clearInterval(interval);
+   }, [time]);
+ 
+   useFocusEffect(
+     React.useCallback(() => {
+       // Start the timer when the screen comes into focus
+       setTime(initialTime);
+     }, [])
+   );
+
+  function formatSeconds(seconds: number) {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+
+    return `${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(2, '0')}`;
+  }
+
 
   return (
     <View style={styles.container}>
@@ -15,12 +47,10 @@ export default function TabTwoScreen() {
             height: 250,
             objectFit: "cover",
           }}
-          source={{
-            uri: "https://slpproprope001.blob.core.windows.net/2018/Proyectos/Proy010/Recursos/P10_ANI06/img/img10.gif",
-          }}
+          source={multi}
         />
       </View>
-      <Text style={{ fontSize: 15, marginTop: 80, width: "80%" }}>
+      <Text style={{ fontSize: 18, marginTop: 80, width: "80%" }}>
       Aprieta las fosas nasales y cubre su boca con la tuya dando una respiración de un segundo.
        Si el pecho se eleva da otra respiración. Si no, vuelve a abrir las vías respiratorias y repite.
        Reinicia el ciclo de 30 compresiones y dos respiraciones hasta que sea necesario.{" "}
@@ -35,7 +65,7 @@ export default function TabTwoScreen() {
       >
         <TouchableOpacity
           style={{
-            width: 80,
+            width: 100,
             borderColor: "red",
             borderWidth: 2,
             borderRadius: 6,
@@ -43,10 +73,10 @@ export default function TabTwoScreen() {
             paddingHorizontal: 10,
           }}
         >
-          <Text>Saltar {">>"}</Text>
+           <Link style={{ fontSize: 18 }} href={'/(tabs)/home'}>Saltar {">>"}</Link>
         </TouchableOpacity>
 
-        <Text>Tiempo: 00</Text>
+        <Text style={{ fontSize: 18 }}>Tiempo: {formatSeconds(time)}</Text>
       </View>
     </View>
   );

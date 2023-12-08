@@ -18,7 +18,7 @@ export default function TabTwoScreen() {
        if (time > 0) {
          setTime(time - 1);
        }
-     }, 1000);
+     }, 2000);
  
      return () => clearInterval(interval);
    }, [time]);
@@ -29,6 +29,13 @@ export default function TabTwoScreen() {
        setTime(initialTime);
      }, [])
    );
+
+   function formatSeconds(seconds: number) {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+
+    return `${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(2, '0')}`;
+  }
 
   return (
     <View style={styles.container}>
@@ -42,7 +49,7 @@ export default function TabTwoScreen() {
           source={multi}
         />
       </View>
-      <Text style={{ fontSize: 15, marginTop: 80, width: "80%" , textAlign: "justify"}}>
+      <Text style={{ fontSize: 18, marginTop: 80, width: "80%" , textAlign: "justify"}}>
       RECUERDE! No tocar con las manos al accidentado porque se recibiria la descarga electrica.
       Retirar al accidentado de la fuente eléctrica con un objeto de madera o plástico{" "}
       </Text>
@@ -51,12 +58,13 @@ export default function TabTwoScreen() {
           width: "90%",
           flexDirection: "row",
           justifyContent: "space-around",
+          alignItems: 'center',
           marginTop: 100,
         }}
       >
         <TouchableOpacity
           style={{
-            width: 80,
+            width: 100,
             borderColor: "red",
             borderWidth: 2,
             borderRadius: 6,
@@ -64,11 +72,11 @@ export default function TabTwoScreen() {
             paddingHorizontal: 10,
           }}
         >
-          <Link href={'/(tabs)/screens/Electrocutaciones/Paso3'}>Saltar {">>"}</Link>
+          <Link style={{ fontSize: 18 }} href={'/(tabs)/screens/Electrocutaciones/Paso3'}>Saltar {">>"}</Link>
    
         </TouchableOpacity>
 
-        <Text>Tiempo: {time}</Text>
+        <Text  style={{ fontSize: 18 }}>Tiempo: {formatSeconds(time)}</Text>
       </View>
     </View>
   );

@@ -16,7 +16,7 @@ export default function TabTwoScreen() {
        if (time > 0) {
          setTime(time - 1);
        }
-     }, 1000);
+     }, 2000);
  
      return () => clearInterval(interval);
    }, [time]);

@@ -30,6 +30,13 @@ export default function TabTwoScreen() {
      }, [])
    );
 
+   function formatSeconds(seconds: number) {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+
+    return `${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(2, '0')}`;
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.buttonWrapper}>
@@ -58,7 +65,7 @@ export default function TabTwoScreen() {
       >
         <TouchableOpacity
           style={{
-            width: 80,
+            width: 100,
             borderColor: "red",
             borderWidth: 2,
             borderRadius: 6,
@@ -66,11 +73,11 @@ export default function TabTwoScreen() {
             paddingHorizontal: 10,
           }}
         >
-          <Link href={'/(tabs)/screens/Incendios/Paso2'}>Saltar {">>"}</Link>
+          <Link style={{ fontSize: 18 }}  href={'/(tabs)/screens/Incendios/Paso2'}>Saltar {">>"}</Link>
      
         </TouchableOpacity>
 
-        <Text>Tiempo: {time}</Text>
+        <Text style={{ fontSize: 18 }}>Tiempo: {formatSeconds(time)}</Text>
       </View>
     </View>
   );

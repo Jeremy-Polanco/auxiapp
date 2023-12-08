@@ -31,6 +31,14 @@ useEffect(() => {if(time === 0){
     }, [])
   );
 
+  function formatSeconds(seconds: number) {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+
+    return `${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(2, '0')}`;
+  }
+
+
   return (
     <View style={styles.container}>
       <View style={styles.buttonWrapper}>
@@ -43,7 +51,7 @@ useEffect(() => {if(time === 0){
           source={multi}
         />
       </View>
-      <Text style={{ fontSize: 15, marginTop: 80, width: "80%", textAlign: "justify" }}>
+      <Text style={{ fontSize: 18, marginTop: 80, width: "80%", textAlign: "justify" }}>
       Colocarse detrás de la persona, inclinarla hacia adelante y darle 
       cuatro golpes secos entre los omoplatos{" "}
       </Text>
@@ -57,7 +65,7 @@ useEffect(() => {if(time === 0){
       >
         <TouchableOpacity
           style={{
-            width: 80,
+            width: 100,
             borderColor: "red",
             borderWidth: 2,
             borderRadius: 6,
@@ -65,10 +73,10 @@ useEffect(() => {if(time === 0){
             paddingHorizontal: 10,
           }}
         >
-          <Link href={'/(tabs)/screens/Atragantamientos/Paso2'}>Saltar {">>"}</Link>
+          <Link style={{ fontSize: 18 }} href={'/(tabs)/screens/Atragantamientos/Paso2'}>Saltar {">>"}</Link>
         </TouchableOpacity>
 
-        <Text>Tiempo: {time}</Text>
+        <Text style={{ fontSize: 18 }}>Tiempo: {formatSeconds(time)}</Text>
       </View>
     </View>
   );

@@ -1,11 +1,41 @@
 import { Image, StyleSheet, TouchableOpacity } from "react-native";
+import React, { useState, useEffect, useCallback } from 'react';
+import { useRouter, useFocusEffect, Link} from "expo-router";
 
 import { Text, View } from "../../../../components/Themed";
-import { Link } from "expo-router";
+
 
 
 export default function TabTwoScreen() {
+  const navigation = useRouter();
+  const initialTime = 10;
+   const [time, setTime] = useState(initialTime);
+ useEffect(() => {if(time === 0){
+   navigation.push('/(tabs)/home')
+ }}, [time] )
+   useEffect(() => {
+     const interval = setInterval(() => {
+       if (time > 0) {
+         setTime(time - 1);
+       }
+     }, 2000);
  
+     return () => clearInterval(interval);
+   }, [time]);
+ 
+   useFocusEffect(
+     React.useCallback(() => {
+       // Start the timer when the screen comes into focus
+       setTime(initialTime);
+     }, [])
+   );
+
+  function formatSeconds(seconds: number) {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+
+    return `${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(2, '0')}`;
+  }
 
   return (
     <View style={styles.container}>
@@ -21,7 +51,7 @@ export default function TabTwoScreen() {
           }}
         />
       </View>
-      <Text style={{ fontSize: 15, marginTop: 80, width: "80%" , textAlign: "justify"}}>
+      <Text style={{ fontSize: 18, marginTop: 80, width: "80%" , textAlign: "justify"}}>
         Ante una hemorragia nasal, lo primero que hay que hacer es inclinar la
         cabeza para evitar tragar sangre. A la vez presiona la nariz durante
         unos minutos hasta que deje de sangrar{" "}
@@ -36,7 +66,7 @@ export default function TabTwoScreen() {
       >
         <TouchableOpacity
           style={{
-            width: 80,
+            width: 100,
             borderColor: "red",
             borderWidth: 2,
             borderRadius: 6,
@@ -45,10 +75,10 @@ export default function TabTwoScreen() {
           }}
         >
           
-          <Link href={'/(tabs)/home'}>Saltar {">>"}</Link>
+          <Link style={{ fontSize: 18 }} href={'/(tabs)/home'}>Saltar {">>"}</Link>
         </TouchableOpacity>
 
-        <Text>Tiempo: 00</Text>
+        <Text style={{ fontSize: 18 }}>Tiempo: {formatSeconds(time)}</Text>
       </View>
     </View>
   );

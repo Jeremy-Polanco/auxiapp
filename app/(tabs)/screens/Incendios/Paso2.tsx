@@ -30,6 +30,12 @@ export default function TabTwoScreen() {
      }, [])
    );
 
+   function formatSeconds(seconds: number) {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+
+    return `${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(2, '0')}`;
+  }
   return (
     <View style={styles.container}>
       <View style={styles.buttonWrapper}>
@@ -42,7 +48,7 @@ export default function TabTwoScreen() {
           source={multi}
         />
       </View>
-      <Text style={{ fontSize: 15, marginTop: 80, width: "80%" , textAlign: "justify" }}>
+      <Text style={{ fontSize: 18, marginTop: 80, width: "80%" , textAlign: "justify" }}>
       Aborda el fuego en dirección al viento.
       Apunta la manguera hacia la base y a 3 metros del fuego.{" "}
       </Text>
@@ -56,7 +62,7 @@ export default function TabTwoScreen() {
       >
         <TouchableOpacity
           style={{
-            width: 80,
+            width: 100,
             borderColor: "red",
             borderWidth: 2,
             borderRadius: 6,
@@ -64,11 +70,11 @@ export default function TabTwoScreen() {
             paddingHorizontal: 10,
           }}
         >
-          <Link href={'/(tabs)/screens/Incendios/Paso3'}>Saltar {">>"}</Link>
+          <Link style={{ fontSize: 18 }} href={'/(tabs)/screens/Incendios/Paso3'}>Saltar {">>"}</Link>
      
         </TouchableOpacity>
 
-        <Text>Tiempo: {time}</Text>
+        <Text style={{ fontSize: 18 }}>Tiempo: {formatSeconds(time)}</Text>
       </View>
     </View>
   );

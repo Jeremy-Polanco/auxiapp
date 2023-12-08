@@ -5,6 +5,7 @@ import QuestionMark from "../../../../assets/images/Interrogante.png";
 import { Link } from "expo-router";
 
 
+
 export default function TabTwoScreen() {
  
 
@@ -13,11 +14,13 @@ export default function TabTwoScreen() {
       <View>
         <Image style={{
           width: 200,
+          height: 200,
     objectFit: "contain",
+    alignSelf: "center",
   }} source={QuestionMark} />
       </View>
       
-      <Text style={{ fontSize: 15, marginTop: 80, width: "80%" }}>
+      <Text style={{ fontSize: 22, fontWeight: "bold", marginTop: 80, marginHorizontal: 'auto' }}>
         Hay hemorragia?.{" "}
         </Text>
         <View
@@ -31,15 +34,27 @@ export default function TabTwoScreen() {
           <TouchableOpacity
             style={{
               width: 80,
-              borderColor: "red",
+              borderColor: "green",
               borderWidth: 2,
               borderRadius: 6,
               padding: 6,
               paddingHorizontal: 10,
             }}
           >
-            <Link href={'/(tabs)/home'}>Si {">"}</Link>
-            <Link href={'/(tabs)/screens/Fractura/Paso2'}>No {"X"}</Link>
+            <Link style={{ fontSize: 18 }} href={'/(tabs)/home'}>Si {">"}</Link>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+          style={{
+            width: 80,
+            borderColor: "red",
+            borderWidth: 2,
+            borderRadius: 6,
+            padding: 6,
+            paddingHorizontal: 10,
+          }}
+        >
+            <Link style={{ fontSize: 18 }} href={'/(tabs)/screens/Fractura/Paso2'}>No {"X"}</Link>
           </TouchableOpacity>
 
           
