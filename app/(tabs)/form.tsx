@@ -64,6 +64,24 @@ const TabFourScreen = () => {
         return;
       }
 
+      if(!validatePhoneNumber(inputValues.numeroCasa)) {
+        Alert.alert(
+          "Numero de telefono invalido",
+          "Debe introducir un numero de telefono de casa en un formato valido",
+          [{ text: "ACEPTAR" }]
+        );
+        return;
+      }
+
+      if(!validateCedula(inputValues.Cedula)) {
+        Alert.alert(
+          "Numero de cedula no valido",
+          "Introduzca su numero de cedula sin espacios ni guiones",
+          [{ text: "ACEPTAR" }]
+        );
+        return;
+      }   
+
       try {
         const jsonValue = JSON.stringify(inputValues);
         await AsyncStorage.setItem("datos-formulario", jsonValue);
@@ -163,6 +181,44 @@ const TabFourScreen = () => {
     </SafeAreaView>
   );
 };
+
+function validatePhoneNumber(phoneNumber: string) {
+  // Valida que la cadena de texto tenga 10 caracteres
+  if (phoneNumber.length !== 10) {
+    return false;
+  }
+
+  // Valida que todos los caracteres sean números
+  for (let i = 0; i < phoneNumber.length; i++) {
+    if (!/[0-9]/.test(phoneNumber[i])) {
+      return false;
+    }
+  }
+
+  // Valida que el número comience con 809, 849 o 829
+  if (!/^(809|849|829)\d{7}$/.test(phoneNumber)) {
+    return false;
+  }
+
+  // La cadena de texto es válida
+  return true;
+}
+
+function validateCedula(cedula: string) {
+  // Valida que la cadena de texto tenga 11 caracteres
+  if (cedula.length !== 11) {
+    return false;
+  }
+
+  // Valida que todos los caracteres sean números
+  for (let i = 0; i < cedula.length; i++) {
+    if (!/[0-9]/.test(cedula[i])) {
+      return false;
+    }
+  }
+  // La cadena de texto es válida
+  return true;
+}
 
 function validarObjeto(objeto: Record<string, string>): boolean {
   for (const propiedad in objeto) {
