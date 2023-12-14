@@ -10,23 +10,33 @@ export default function TabTwoScreen() {
   const navigation = useRouter();
   const initialTime = 10;
    const [time, setTime] = useState(initialTime);
- useEffect(() => {if(time === 0){
-   navigation.push('/(tabs)/screens/Electrocutaciones/pregunta')
- }}, [time] )
+   
+   useEffect(() => {if(time === 0){
+     navigation.push('/(tabs)/screens/Electrocutaciones/pregunta')
+    }}, [time] )
+    
+    const [isScreenFocused, setIsScreenFocused] = useState(true);
    useEffect(() => {
      const interval = setInterval(() => {
        if (time > 0) {
          setTime(time - 1);
        }
      }, 1000);
+
+     if (!isScreenFocused) {
+      clearInterval(interval);
+     }
  
      return () => clearInterval(interval);
    }, [time]);
  
    useFocusEffect(
      React.useCallback(() => {
+        setIsScreenFocused(true);
        // Start the timer when the screen comes into focus
        setTime(initialTime);
+
+       return () => setIsScreenFocused(false);
      }, [])
    );
 

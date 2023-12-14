@@ -3,7 +3,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { useRouter, useFocusEffect, Link} from "expo-router";
 
 import { Text, View } from "../../../../components/Themed";
-import multi from "../../../../assets/images/RCPpaso3.gif";
+// import multi from "../../../../assets/images/RCPpaso3.gif";
 
 
 export default function TabTwoScreen() {
@@ -13,22 +13,30 @@ export default function TabTwoScreen() {
  useEffect(() => {if(time === 0){
    navigation.push('/(tabs)/screens/RCP/Paso4')
  }}, [time] )
-   useEffect(() => {
-     const interval = setInterval(() => {
-       if (time > 0) {
-         setTime(time - 1);
-       }
-     }, 2000);
- 
-     return () => clearInterval(interval);
-   }, [time]);
- 
-   useFocusEffect(
-     React.useCallback(() => {
-       // Start the timer when the screen comes into focus
-       setTime(initialTime);
-     }, [])
-   );
+ const [isScreenFocused, setIsScreenFocused] = useState(true);
+ useEffect(() => {
+   const interval = setInterval(() => {
+     if (time > 0) {
+       setTime(time - 1);
+     }
+   }, 1000);
+
+   if (!isScreenFocused) {
+    clearInterval(interval);
+   }
+
+   return () => clearInterval(interval);
+ }, [time]);
+
+ useFocusEffect(
+   React.useCallback(() => {
+      setIsScreenFocused(true);
+     // Start the timer when the screen comes into focus
+     setTime(initialTime);
+
+     return () => setIsScreenFocused(false);
+   }, [])
+ );
 
    function formatSeconds(seconds: number) {
     const minutes = Math.floor(seconds / 60);
@@ -40,14 +48,14 @@ export default function TabTwoScreen() {
   return (
     <View style={styles.container}>
       <View style={styles.buttonWrapper}>
-        <Image
+        {/* <Image
           style={{
             width: 250,
             height: 250,
             objectFit: "cover",
           }}
           source={multi}
-        />
+        /> */}
       </View>
       <Text style={{ fontSize: 18, marginTop: 80, width: "80%" }}>
       Haz 30 compresiones torácicas a una frecuencia de 100 a 120 por minuto.{" "}

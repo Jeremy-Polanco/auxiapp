@@ -13,22 +13,30 @@ export default function TabTwoScreen() {
 useEffect(() => {if(time === 0){
   navigation.push('/(tabs)/screens/Hipoglucemia/NoPaso2')
 }}, [time] )
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (time > 0) {
-        setTime(time - 1);
-      }
-    }, 1000);
+const [isScreenFocused, setIsScreenFocused] = useState(true);
+   useEffect(() => {
+     const interval = setInterval(() => {
+       if (time > 0) {
+         setTime(time - 1);
+       }
+     }, 1000);
 
-    return () => clearInterval(interval);
-  }, [time]);
+     if (!isScreenFocused) {
+      clearInterval(interval);
+     }
+ 
+     return () => clearInterval(interval);
+   }, [time]);
+ 
+   useFocusEffect(
+     React.useCallback(() => {
+        setIsScreenFocused(true);
+       // Start the timer when the screen comes into focus
+       setTime(initialTime);
 
-  useFocusEffect(
-    React.useCallback(() => {
-      // Start the timer when the screen comes into focus
-      setTime(initialTime);
-    }, [])
-  );
+       return () => setIsScreenFocused(false);
+     }, [])
+   );
 
   function formatSeconds(seconds: number) {
     const minutes = Math.floor(seconds / 60);

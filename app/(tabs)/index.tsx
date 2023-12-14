@@ -10,7 +10,7 @@ import axios from "axios";
 import * as Location from "expo-location";
 import { useEffect, useState } from "react";
 import { Alert } from 'react-native';
-import { useRouter } from "expo-router";
+import { useFocusEffect, useRouter } from "expo-router";
 
 export default function Home() {
   const [user, setUser] = useState();
@@ -60,6 +60,14 @@ export default function Home() {
 
     const value = JSON.parse(jsonValue as string);
 
+    if (value?.Cedula) {
+      const res = await fetch(`https://api.adamix.net/apec/cedula/${value.Cedula}`);
+      const data = await res.json();
+      
+      if (data?.ok)
+        value.Photo = data.foto;
+    }
+
     if (!value) {
       Alert.alert('Necesitamos tu información', 'Para poder brindarte auxilio cuando lo necesites, debemos almacenar tu información de contacto de emergencia.', [
         {
@@ -75,9 +83,9 @@ export default function Home() {
     setUser(value);
   };
 
-  useEffect(() => {
+  useFocusEffect(() => {
     fetchUserInformation();
-  }, []);
+  });
 
   // return (
   //   <>
@@ -104,6 +112,11 @@ export default function Home() {
         En caso de emergencia presionar el boton
       </Text>
       <View style={styles.contenedor}>
+        {user?.Photo && (
+          <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', backgroundColor: styles.contenedor.backgroundColor }}>
+            <Image source={{ uri: user.Photo }} width={70} height={70} />
+          </View>
+        )}
         <Text style={styles.text}>Nombre: {user?.Nombre}</Text>
         <Text style={styles.text}>Cédula: {user?.Cedula}</Text>
         <Text style={styles.text}>Edad: {user?.Edad}</Text>
