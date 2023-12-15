@@ -1,6 +1,8 @@
 import { Image, StyleSheet, TouchableOpacity } from "react-native";
 import React, { useState, useEffect, useCallback } from 'react';
 import { useRouter, useFocusEffect, Link} from "expo-router";
+import multi from "../../../../assets/images/RCPpaso1.gif";
+
 
 import { Text, View } from "../../../../components/Themed";
 // import multi from "../../../../assets/images/RCPpaso3.gif";
@@ -48,14 +50,14 @@ export default function TabTwoScreen() {
   return (
     <View style={styles.container}>
       <View style={styles.buttonWrapper}>
-        {/* <Image
+        { <Image
           style={{
             width: 250,
             height: 250,
             objectFit: "cover",
           }}
           source={multi}
-        /> */}
+        /> }
       </View>
       <Text style={{ fontSize: 18, marginTop: 80, width: "80%" }}>
       Haz 30 compresiones torácicas a una frecuencia de 100 a 120 por minuto.{" "}

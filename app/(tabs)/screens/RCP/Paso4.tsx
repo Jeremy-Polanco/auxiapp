@@ -3,7 +3,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { useRouter, useFocusEffect, Link} from "expo-router";
 
 import { Text, View } from "../../../../components/Themed";
-// import multi from "../../../../assets/images/RCPpaso4.gif";
+import multi from "../../../../assets/images/RCPpaso4.gif";
 
 
 export default function TabTwoScreen() {
@@ -48,14 +48,14 @@ export default function TabTwoScreen() {
   return (
     <View style={styles.container}>
       <View style={styles.buttonWrapper}>
-        {/* <Image
+        { <Image
           style={{
             width: 250,
             height: 250,
             objectFit: "cover",
           }}
           source={multi}
-        /> */}
+        /> }
       </View>
       <Text style={{ fontSize: 16, marginTop: 80, width: "80%" }}>
       comienza la ventilación: abre las vías respiratorias inclinando la cabeza

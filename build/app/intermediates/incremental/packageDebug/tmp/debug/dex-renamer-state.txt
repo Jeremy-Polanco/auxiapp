@@ -1,0 +1,4 @@
+#Thu Oct 05 21:48:25 BOT 2023
+base.0=C\:\\Users\\jazmi\\OneDrive - itla.edu.do\\NOVENO CUATRIMESTRE 2023\\Auxiapp\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+renamed.0=classes.dex
+path.0=classes.dex
