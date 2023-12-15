@@ -1,9 +1,18 @@
-import { Image, ScrollView, StyleSheet, Text } from "react-native";
+import {
+  Alert,
+  Image,
+  Linking,
+  ScrollView,
+  StyleSheet,
+  Text,
+} from "react-native";
 
 import { TouchableOpacity } from "react-native-gesture-handler";
 import Logo from "../../assets/icons/logoF.jpeg";
 import { View } from "../../components/Themed";
 import { Link } from "expo-router";
+import { Ionicons } from "@expo/vector-icons";
+import { useCallback } from "react";
 
 const buttons = [
   {
@@ -48,10 +57,34 @@ const buttons = [
   },
 ];
 
+type OpenURLButtonProps = {
+  url: string;
+  children: string;
+};
+
+const handlePress = async () => {
+  const supported = await Linking.canOpenURL("https://auxiapp.netlify.app/");
+
+  if (supported) {
+    await Linking.openURL("https://auxiapp.netlify.app/");
+  } else {
+    Alert.alert(
+      `Don't know how to open this URL: ${"https://auxiapp.netlify.app/"}`
+    );
+  }
+};
+
 export default function TabOneScreen() {
   return (
     <ScrollView style={styles.container}>
       <View>
+        <Ionicons
+          onPress={handlePress}
+          name="information-circle-sharp"
+          size={36}
+          color="black"
+          style={{ position: "absolute", top: 20, right: 10, color: "red" }}
+        />
         <Image source={Logo} style={styles.logoImage} />
       </View>
       <View style={styles.buttonWrapper}>
@@ -103,7 +136,7 @@ const styles = StyleSheet.create({
     alignSelf: "center",
   },
   buttonText: {
-    fontSize: 17    ,
+    fontSize: 17,
     fontWeight: "bold",
     color: "red",
   },

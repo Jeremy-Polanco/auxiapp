@@ -48,7 +48,7 @@ const TabBar = ({ navigation }: any) => {
 
         let focused = actualRoute === name;
 
-        const color = focused ? "#222" : "#fff";
+        const color = focused ? "red" : "#222";
 
         if (name.includes("/")) {
           focused = name.includes(actualRoute.split(" ")[0]);
@@ -127,7 +127,7 @@ const TabBar = ({ navigation }: any) => {
                 <TabBarIconAndLabelWrapper>
                   <TabBarIcon name={iconName} color={color} />
                   <TabBarLabelText
-                    color={focused ? "#222" : "#fff"}
+                    color={color}
                     fontWeight={focused ? "500" : "normal"}
                   >
                     Formulario
