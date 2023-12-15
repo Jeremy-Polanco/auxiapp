@@ -21,7 +21,7 @@ export default function TabTwoScreen() {
   }} source={QuestionMark} />
       </View>
       <Text style={{ fontSize: 22, fontWeight: "bold", marginTop: 80, marginHorizontal: 'auto'  }}>
-      La persona esta consciente?.{" "}
+      La persona esta consciente?..{" "}
       </Text>
       <View
         style={{
