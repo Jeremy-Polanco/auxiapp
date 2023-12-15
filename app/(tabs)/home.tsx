@@ -40,6 +40,12 @@ const buttons = [
   },
   { id: 9, title: "Fractura", href: "/(tabs)/screens/Fractura/Paso1" },
   { id: 10, title: "RCP", href: "/(tabs)/screens/RCP/Paso1" },
+
+  {
+    id: 11,
+    title: "Torniquete",
+    href: "/(tabs)/screens/Torniquete/Paso1",
+  },
 ];
 
 export default function TabOneScreen() {
