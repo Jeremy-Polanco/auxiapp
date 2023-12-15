@@ -1,7 +1,7 @@
 import { Image, ScrollView, StyleSheet, Text } from "react-native";
 
 import { TouchableOpacity } from "react-native-gesture-handler";
-import Logo from "../../assets/icons/logo.png";
+import Logo from "../../assets/icons/logoF.jpeg";
 import { View } from "../../components/Themed";
 import { Link } from "expo-router";
 
